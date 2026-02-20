@@ -125,7 +125,7 @@ Meta tags optimized for:
 **Sharath G A**  
 AI Engineer | ML Engineer | Full Stack AI Systems Developer
 
-- Email: sharathreddy789@gmail.com
+- Email: sharathreddy7899@gmail.com
 - GitHub: [github.com/sharathreddy7899-dotcom](https://github.com/sharathreddy7899-dotcom)
 - LinkedIn: [linkedin.com/in/sharathreddy01](https://www.linkedin.com/in/sharathreddy01)
 - Location: Bangalore, India

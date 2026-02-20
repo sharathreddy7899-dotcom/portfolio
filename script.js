@@ -85,15 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Download Resume functionality (placeholder)
+// Download Resume functionality
 document.querySelectorAll('a[href="#contact"]').forEach(link => {
     if (link.textContent.includes('Resume')) {
         link.addEventListener('click', (e) => {
-            // Replace with actual resume file path when available
-            console.log('Resume download initiated');
-            // Uncomment when resume is ready:
-            // e.preventDefault();
-            // window.open('path/to/Sharath_GA_Resume.pdf', '_blank');
+            e.preventDefault();
+            // Opens resume in new tab - make sure to upload your resume as 'Sharath_GA_Resume.pdf' in the resume folder
+            window.open('resume/Sharath_GA_Resume.pdf', '_blank');
         });
     }
 });
@@ -101,4 +99,4 @@ document.querySelectorAll('a[href="#contact"]').forEach(link => {
 // Console message for recruiters
 console.log('%c👋 Hello!', 'color: #58a6ff; font-size: 18px; font-weight: bold;');
 console.log('%cThanks for checking the code. Built with vanilla HTML, CSS, and JavaScript.', 'color: #8b949e; font-size: 13px;');
-console.log('%cContact: sharathreddy789@gmail.com', 'color: #58a6ff; font-size: 13px;');
+console.log('%cContact: sharathreddy7899@gmail.com', 'color: #58a6ff; font-size: 13px;');
