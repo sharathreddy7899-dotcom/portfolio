@@ -1,117 +1,85 @@
-# Sharath G A — AI Engineer Portfolio
+# Sharath G.A. - AI/ML Engineer Portfolio
 
-A minimal, research-focused portfolio website designed for AI/ML engineers. Clean, professional, and technically strong.
-
-## Design Philosophy
-
-This portfolio follows the aesthetic of top AI student portfolios from leading universities and AI startups:
-- **Minimal & Clean** - No flashy animations, focus on content
-- **Research-Oriented** - Technical case studies over simple project cards
-- **Professional Dark Theme** - GitHub-inspired color scheme
-- **Typography-Focused** - Clear hierarchy with Inter and JetBrains Mono
-- **Recruiter-Friendly** - ATS-optimized structure and SEO
+Production-ready single-page portfolio website with clean corporate styling.
 
 ## Features
 
-- Fully responsive design (mobile, tablet, desktop)
+- Clean corporate design with navy blue (#0b2545) and professional blue (#1f6feb)
+- Fully responsive (mobile + desktop)
 - Smooth scrolling navigation
-- Technical project case studies with problem statements, architecture, and impact
-- Categorized skills section
-- Clean contact section
-- SEO optimized for AI Engineer roles
-- Fast loading with vanilla JavaScript
-
-## Technologies
-
-- HTML5 (Semantic markup)
-- CSS3 (CSS Grid, Flexbox, Custom Properties)
-- Vanilla JavaScript (No frameworks)
-- Google Fonts (Inter, JetBrains Mono)
+- Image lightbox for project screenshots
+- Embedded video players for project demos
+- Contact form with validation
+- SEO optimized
+- Fast loading and accessible
 
 ## Structure
 
-### Sections
-1. **Hero** - Name, title, professional summary, and CTA buttons
-2. **About** - Research-engineer tone with systems thinking focus
-3. **Skills** - Categorized technical skills (Programming, ML/AI, Frameworks, Systems, Core CS)
-4. **Research & Projects** - Detailed technical case studies with architecture
-5. **Contact** - Minimal contact information
+- `index.html` - Main portfolio page
+- `styles.css` - All styling with CSS variables
+- `script.js` - Interactive features (smooth scroll, lightbox, form handling)
+- `assets/` - Media files folder
 
-### Project Format
-Each project includes:
-- Problem Statement
-- Technical Approach
-- Architecture Overview
-- Tech Stack
-- Impact Metrics
+## Required Assets
+
+Place the following files in the `assets/` folder:
+
+### Prompt-to-Video Project
+- `ptv_workspace_01.png` - Workspace interface screenshot
+- `ptv_output_01.png` - Generated video output example
+- `ptv_history_01.png` - Video generation history dashboard
+- `ptv_demo.mp4` - Demo video of the platform
+
+### Rain Detector Project
+- `rain_model_front.jpg` - Prototype front view
+- `rain_prototype_top.jpg` - Prototype top view
+- `rain_prototype_inner.jpg` - Internal components view
+- `rain_demo.mp4` - Demo video of the system
+
+**Note:** The resume file `Sharath_Resume__pdf1 (2) (1).pdf` is already linked in the code.
+
+## Quick Start
+
+1. Add your project images and videos to the `assets/` folder
+2. Open `index.html` in a browser to preview
+3. The site will work even if some media files are missing (they'll be hidden automatically)
 
 ## Deployment
 
-### GitHub Pages
-```bash
-# Create repository and push code
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/yourusername/portfolio.git
-git push -u origin main
+### Option 1: Netlify (Recommended)
+1. Drag and drop the entire folder to [Netlify Drop](https://app.netlify.com/drop)
+2. Your site will be live instantly with a free URL
 
-# Enable GitHub Pages in repository settings
-# Settings > Pages > Source: main branch
+### Option 2: Vercel
+1. Install Vercel CLI: `npm i -g vercel`
+2. Run `vercel` in the project folder
+3. Follow the prompts
+
+### Option 3: GitHub Pages
+1. Create a new GitHub repository
+2. Push all files to the repository
+3. Go to Settings > Pages
+4. Select main branch as source
+5. Your site will be live at `https://yourusername.github.io/repo-name`
+
+## File Structure
 ```
-
-### Netlify
-1. Drag and drop project folder to [Netlify](https://app.netlify.com/drop)
-2. Site goes live instantly with custom URL
-
-### Vercel
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel
+portfolio/
+├── index.html              # Main HTML file
+├── styles.css              # All styling
+├── script.js               # Interactive features
+├── Sharath_Resume__pdf1 (2) (1).pdf  # Resume file
+├── assets/                 # Media files folder
+│   ├── ptv_workspace_01.png
+│   ├── ptv_output_01.png
+│   ├── ptv_history_01.png
+│   ├── ptv_demo.mp4
+│   ├── rain_model_front.jpg
+│   ├── rain_prototype_top.jpg
+│   ├── rain_prototype_inner.jpg
+│   └── rain_demo.mp4
+└── README.md
 ```
-
-## Customization
-
-### Colors
-Edit CSS variables in `styles.css`:
-```css
-:root {
-    --bg-primary: #0d1117;
-    --text-primary: #e6edf3;
-    --accent-primary: #58a6ff;
-    /* ... */
-}
-```
-
-### Content
-All content is in `index.html`. Update sections directly.
-
-### Resume
-Add your resume PDF and update the link in `script.js`:
-```javascript
-window.open('path/to/Sharath_GA_Resume.pdf', '_blank');
-```
-
-## Performance
-
-- Lighthouse Score: 95+
-- No external dependencies (except fonts)
-- Minimal JavaScript
-- Optimized for fast loading
-
-## SEO
-
-Meta tags optimized for:
-- AI Engineer
-- Machine Learning Engineer
-- Full Stack AI Developer
-- Generative AI
-- LLM Engineering
-- Computer Vision
 
 ## Browser Support
 
@@ -120,16 +88,6 @@ Meta tags optimized for:
 - Safari (latest)
 - Edge (latest)
 
-## Contact
+## License
 
-**Sharath G A**  
-AI Engineer | ML Engineer | Full Stack AI Systems Developer
-
-- Email: sharathreddy7899@gmail.com
-- GitHub: [github.com/sharathreddy7899-dotcom](https://github.com/sharathreddy7899-dotcom)
-- LinkedIn: [linkedin.com/in/sharathreddy01](https://www.linkedin.com/in/sharathreddy01)
-- Location: Bangalore, India
-
----
-
-© 2026 Sharath G A
+© 2026 Sharath G.A. All rights reserved.
