@@ -1,5 +1,7 @@
 /* Reset and Base Styles */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,10 +18,13 @@
     --accent-secondary: #1f6feb;
     --border-color: #30363d;
     --code-bg: #161b22;
+    --transition-speed: 0.2s;
 }
 
 html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -29,6 +34,11 @@ body {
     line-height: 1.7;
     overflow-x: hidden;
     font-size: 16px;
+}
+
+::selection {
+    background-color: rgba(88, 166, 255, 0.2);
+    color: var(--text-primary);
 }
 
 .container {
@@ -42,10 +52,16 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(13, 17, 23, 0.8);
+    background-color: rgba(13, 17, 23, 0.85);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
+    transition: background-color var(--transition-speed) ease;
+}
+
+.navbar:hover {
+    background-color: rgba(13, 17, 23, 0.95);
 }
 
 .navbar .container {
@@ -73,7 +89,24 @@ body {
     text-decoration: none;
     font-weight: 400;
     font-size: 14px;
-    transition: color 0.2s ease;
+    transition: color var(--transition-speed) ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-primary);
+    transition: width var(--transition-speed) ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
 }
 
 .nav-link:hover,
@@ -161,20 +194,44 @@ body {
     text-decoration: none;
     font-weight: 500;
     font-size: 14px;
-    transition: all 0.2s ease;
+    transition: all var(--transition-speed) ease;
     display: inline-block;
     border: 1px solid transparent;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .btn-primary {
     background-color: var(--accent-secondary);
     color: var(--text-primary);
     border-color: var(--accent-secondary);
+    box-shadow: 0 0 0 0 rgba(88, 166, 255, 0.4);
 }
 
 .btn-primary:hover {
     background-color: var(--accent-primary);
     border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
 }
 
 .btn-secondary {
@@ -185,6 +242,8 @@ body {
 
 .btn-secondary:hover {
     border-color: var(--text-secondary);
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
 }
 
 .btn-tertiary {
@@ -195,6 +254,7 @@ body {
 
 .btn-tertiary:hover {
     color: var(--text-primary);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .hero-links {
@@ -205,11 +265,20 @@ body {
 .link-item {
     color: var(--text-tertiary);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: all var(--transition-speed) ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .link-item:hover {
     color: var(--accent-primary);
+    background-color: rgba(88, 166, 255, 0.1);
+    transform: translateY(-3px);
 }
 
 /* Section Styles */
@@ -259,6 +328,12 @@ section {
     border-radius: 8px;
     border: 1px solid var(--border-color);
     height: fit-content;
+    transition: all 0.3s ease;
+}
+
+.about-focus:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .focus-title {
@@ -303,6 +378,13 @@ section {
     padding: 28px;
     border-radius: 8px;
     border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .category-title {
@@ -344,6 +426,11 @@ section {
 .project {
     position: relative;
     padding-left: 80px;
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateX(5px);
 }
 
 .project-number {
@@ -354,6 +441,11 @@ section {
     font-weight: 700;
     color: var(--border-color);
     font-family: 'JetBrains Mono', monospace;
+    transition: color 0.3s ease;
+}
+
+.project:hover .project-number {
+    color: var(--accent-primary);
 }
 
 .project-title {
@@ -639,4 +731,83 @@ section {
         text-align: center;
         width: 100%;
     }
+}
+
+
+/* Scroll to top button */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-secondary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    background-color: var(--accent-primary);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(88, 166, 255, 0.4);
+}
+
+/* Loading animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, input, textarea {
+    transition: all var(--transition-speed) ease;
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* Improve readability */
+p {
+    max-width: 75ch;
+}
+
+/* Better spacing for lists */
+ul, ol {
+    padding-left: 1.5em;
+}
+
+/* Smooth image loading */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }

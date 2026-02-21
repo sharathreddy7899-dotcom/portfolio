@@ -100,3 +100,63 @@ document.querySelectorAll('a[href="#contact"]').forEach(link => {
 console.log('%c👋 Hello!', 'color: #58a6ff; font-size: 18px; font-weight: bold;');
 console.log('%cThanks for checking the code. Built with vanilla HTML, CSS, and JavaScript.', 'color: #8b949e; font-size: 13px;');
 console.log('%cContact: sharathreddy7899@gmail.com', 'color: #58a6ff; font-size: 13px;');
+
+
+// Scroll to top button
+const scrollTopBtn = document.createElement('button');
+scrollTopBtn.className = 'scroll-top';
+scrollTopBtn.innerHTML = '↑';
+scrollTopBtn.setAttribute('aria-label', 'Scroll to top');
+document.body.appendChild(scrollTopBtn);
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 500) {
+        scrollTopBtn.classList.add('visible');
+    } else {
+        scrollTopBtn.classList.remove('visible');
+    }
+});
+
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Add loading class to body
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('loaded');
+});
+
+// Smooth reveal for sections
+const revealSections = document.querySelectorAll('section');
+const revealOnScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+revealSections.forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    revealOnScroll.observe(section);
+});
+
+// Preload critical resources
+const preloadResume = () => {
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = 'resume/Sharath_GA_Resume.pdf';
+    document.head.appendChild(link);
+};
+
+// Preload resume after page load
+window.addEventListener('load', preloadResume);
